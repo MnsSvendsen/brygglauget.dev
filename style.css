@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    background-image: linear-gradient(orange,yellow);
+    height: 100vh;
+}
+
+div.placeholder{
+    text-align: center;
+    padding-top: 5%;
+}
+h1.title{
+    font-size: 100px;
+    
+}
+
+p.titleText{
+    font-size: 36px;
+}
