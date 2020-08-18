@@ -15,15 +15,44 @@
 
 <body>
 
+    <header class="header-navigation" id="header">
+        <nav>
+            <a href="index.html" title="Home">Hjemm</a>
+            <a class="active" href="Drikker.html" title="About">Våre Drikker</a>
+            <a href="OmOss.html" title="Contact">Om Oss</a>
+        </nav>
+    </header>
+
+    <div class="tabs">
+        <div class="tabs_sidebar">
+            <button class="tabs_button" data-for-tab="1">Tab #1</button>
+            <button class="tabs_button" data-for-tab="2">Tab #2</button>
+            <button class="tabs_button" data-for-tab="3">Tab #3</button>
+        </div>
+        <div class="tabs_content" data-tab="1">
+            <h2>Mjød</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci augue. Fusce nunc sem, aliquet non neque vel, ultricies commodo ex. Donec posuere consequat condimentum. Sed molestie sollicitudin velit, sed vestibulum urna sagittis pharetra. Duis at pharetra nunc. Curabitur ut diam ut felis iaculis gravida id porttitor nibh. Fusce id nulla vel sem consectetur tincidunt ac </p>
+        </div>
+        <div class="tabs_content" data-tab="2">
+            <h2>Ink and Dagger</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci augue. Fusce nunc sem, aliquet non neque vel, ultricies commodo ex. Donec posuere consequat condimentum. Sed molestie sollicitudin velit, sed vestibulum urna sagittis pharetra. Duis at pharetra nunc. Curabitur ut diam ut felis iaculis gravida id porttitor nibh. Fusce id nulla vel sem consectetur tincidunt ac </p>
+        
+        </div>
+        <div class="tabs_content" data-tab="3">
+            <h2>Heffenwise</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci augue. Fusce nunc sem, aliquet non neque vel, ultricies commodo ex. Donec posuere consequat condimentum. Sed molestie sollicitudin velit, sed vestibulum urna sagittis pharetra. Duis at pharetra nunc. Curabitur ut diam ut felis iaculis gravida id porttitor nibh. Fusce id nulla vel sem consectetur tincidunt ac </p>
+        
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <p>Hello</p>
+    </footer>
+<!-- 
     <div class="main">
 
-        <header class="header-navigation" id="header">
-            <nav>
-                <a href="index.html" title="Home">Hjemm</a>
-                <a class="active" href="Drikker.html" title="About">Våre Drikker</a>
-                <a href="OmOss.html" title="Contact">Om Oss</a>
-            </nav>
-        </header>
+        
         <br>
 
         <div class="flex-container">
@@ -51,15 +80,58 @@
             <header>
                 <h1 class="title">WIP</h1>
             </header>
-            <footer class="footer">
-                <p>Hello</p>
-            </footer>
 
-        </div>
+
+        </div> -->
 
 </body>
 <style>
-    .flex-container {
+
+    .tabs{
+        border: 1px solid gray;
+        display: flex;
+    }
+
+    .tabs_sidebar{
+        width: 125px;
+        flex-shrink: 0;
+        background-color: #cccccc;
+
+    }
+
+    .tabs_button{
+        display: block;
+        padding: 10px;
+        background: #eeee;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+    
+    .tabs_button:active{
+        background: #dddddd;
+    }
+    .tabs_button:not(:last-of-type){
+        border-bottom: 1px solid #cccccc;;
+    }
+
+    .tabs_button--active{
+        font-weight: bold;
+        border-right:2px solid#009879 ;
+        background: #dddddd;
+    }
+
+    .tabs_content{
+        padding: 15px ;
+        font-size: 0.8rem;
+        display: none;
+    }
+
+    .tabs_content--active{
+        display: block;
+    }
+
+    /* .flex-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -89,7 +161,7 @@
     .bottle {
         width: 200px;
         height: 300px;
-    }
+    } */
 </style>
 
 </html>
