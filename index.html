@@ -4,17 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="Brygglauget.dev" content="width=device-width , initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Recursive&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Brygglauget.dev</title>
 </head>
 
 <body>
-
     <div class="bottom-particles">
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -59,404 +53,99 @@
     </div>
     <div id="foam"></div>
 
-    <div class="main">
-
-        <div class="header">
-            <a href="index.html" class="logo"><img class="logo" src="Assets/LogoBareTekst-removebg-preview.png">
-            </a>
-            <div class="header-right">
-                <a class="active" href="index.html" title="Home">Hjemm</a>
-                <a href="Drikker.html" title="About" aria-disabled="true">Våre Drikker</a>
-                <a href="OmOss.html" title="Contact">Om Oss</a>
+    <div class="container">
+        <header id="navbar">
+            <a href="#" class="logo"> <img src="Assets/logobaretekst-removebg-preview.png"> </a>
+            <ul>
+                <li><a href=# class="active">Home</a></li>
+                <li><a href=#>Beers</a></li>
+                <li><a href=#>About</a></li>
+                <li><a href='https://untappd.com/Brygglaugetdev'>Untappd</a></li>
+            </ul>
+            <span class="menuIcon" onclick="menuToggle()",></span>
+        </header>
+        <div class="content">
+            <div class="bannerText" id="slideshowText">
+                <div class="active">
+                    <h2>Hvem er vi</h2>
+                    <p>
+                        Vi er en liten gjeng med programmere og it-konsulenter som har en stor interesse for øl.
+                        I 2020 valget vi å starte opp Brygglauget.dev. Vi valgte dette navnet da vi sytes det fenget godt for vår lille it-gjeng 
+                        og .dev er jo utviklings domenet som er forkortelsen til Development
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Vår første mjød</h2>
+                    <p>
+                        Dette var vårt første forsøk på en mjød, og resultatet var helt greit. 
+                        Det ble en veldig alkohol sterk drikk på 13,5% og den søte smaken av honning var lite fremtredenen da dem smakte mer som en tørr sider
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Første brygg dag</h2>
+                    <p>
+                        Den første brygg dagen satte vi to typer øl og en mjød
+                        Mjødet var laget på urnorsk tradisjons oppskrift og bestod av vann lynghonning, mjødurt og vann.
+                        Ølene som vi brygget, var en humle sterk ipa og en mørk kaffe stout
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="bannerImg" id="slideshow"> 
+                <img src="Assets/BeerLine.jpg" class="active">
+                <img src="Assets/mjødbrygg.jpg">
+                <img src="Assets/IMG_20200606_124940.jpg">
             </div>
         </div>
-
-        <div class="placeholder">
-            <header>
-                <h1 class="title">Velkommen til<br> Brygglauget<br>{.Dev}<br>Est.2020</h1>
-            </header>
+        <div class="icons">
+            <ul class="sci">
+                <li><a href="https://untappd.com/Brygglaugetdev"><img src="Assets/icons/untappd.png"></a></li>
+                <!-- <li><a href="#"><img src="Assets/icons/iconfinder_Rounded_Facebook_svg_5282541.png"></a></li>
+                <li><a href="#"><img src="Assets/icons/iconfinder_Rounded_Youtube3_svg_5282548.png"></a></li> -->
+            </ul>
+            <ul class="controls">
+                <li><a><img src="Assets/iconfinder_icons_arrow_1564492.png" onclick="previousSlide();previousSlideText()"></a></li>
+                <li><a><img style="transform: rotate(180deg);" src="Assets/iconfinder_icons_arrow_1564492.png" onclick="nextSlide();nextSlideText()"></a></li>
+            </ul>
         </div>
-
     </div>
-    <script src="./app.js"></script>S
+    <script type="text/javascript">
+    var slideshow = document.getElementById('slideshow');
+    var slides = slideshow.getElementsByTagName('img');
+    var x = 0;
+
+    function nextSlide(){
+        slides[x].classList.remove('active');
+        x = (x + 1) % slides.length;
+        slides[x].classList.add('active');        
+    }
+    function previousSlide(){
+        slides[x].classList.remove('active');
+        x = (x - 1 + slides.length) % slides.length;
+        slides[x].classList.add('active');        
+    }
+
+    var slideshowText = document.getElementById('slideshowText');
+    var slidesText = slideshowText.getElementsByTagName('div');
+    var i = 0;
+
+    function nextSlideText(){
+        slidesText[i].classList.remove('active');
+        i = (i + 1) % slidesText.length;
+        slidesText[i].classList.add('active');        
+    }
+    function previousSlideText(){
+        slidesText[i].classList.remove('active');
+        i = (i - 1 + slidesText.length) % slidesText.length;
+        slidesText[i].classList.add('active');        
+    }
+    function menuToggle(){
+        var nav = document.getElementById('navbar');
+        nav.classList.toggle('active')
+    }
+    </script>
 </body>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .header {
-        overflow: hidden;
-        padding: 20px 10px;
-    }
-
-    .header a {
-        float: left;
-        color: black;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 18px;
-        line-height: 25px;
-        border-radius: 4px;
-    }
-
-    .header a.logo {
-        top: -50px;
-        left: -30px;
-        position: absolute;
-
-    }
-
-    .header a:hover {
-        background-color: rgb(214, 235, 255);
-        color: black;
-    }
-
-    .header a.logo:hover {
-        background-color: transparent;
-    }
-
-    .header a.active {
-        background-color: dodgerblue;
-        color: white;
-    }
-
-    .header-right {
-        float: right;
-    }
-
-    div.placeholder {
-        text-align: center;
-        padding-top: 5%;
-        left: 500px;
-    }
-
-    h1.title {
-        font-size: 100px;
-
-    }
-
-    p.titleText {
-        font-size: 36px;
-    }
-
-    @media screen and (max-width: 500px) {
-        .header a {
-            float: none;
-            display: block;
-            text-align: left;
-        }
-
-        .header-right {
-            float: none;
-        }
-
-        .header a.logo {
-            display: none;
-        }
-
-    }
-
-    html {
-        height: 100%;
-        background: #da5900;
-        background: radial-gradient(circle, #fbb600, #da5900);
-        overflow: hidden;
-    }
-
-    body {
-        background: transparent;
-    }
-
-    #foam {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: -10;
-        background: linear-gradient(#ffffff, #ffffff 5%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0));
-    }
-
-    /*** <--- PARTICLES ---> ***/
-    .bottom-particles {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-    }
-
-    .bottom-particles .bubble {
-        opacity: 0;
-        position: absolute;
-        bottom: -2.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        -webkit-filter: blur(4px);
-        filter: blur(4px);
-    }
-
-    .bottom-particles .bubble:nth-child(1) {
-        left: 88%;
-        animation: blow 5000ms infinite;
-        animation-delay: 174ms;
-    }
-
-    .bottom-particles .bubble:nth-child(2) {
-        left: 90%;
-        animation: blow 5000ms infinite;
-        animation-delay: 11083ms;
-    }
-
-    .bottom-particles .bubble:nth-child(3) {
-        left: 63%;
-        animation: blow 5000ms infinite;
-        animation-delay: 3746ms;
-    }
-
-    .bottom-particles .bubble:nth-child(4) {
-        left: 34%;
-        animation: blow 9652ms infinite;
-        animation-delay: 130ms;
-    }
-
-    .bottom-particles .bubble:nth-child(5) {
-        left: 47%;
-        animation: blow 5000ms infinite;
-        animation-delay: 4842ms;
-    }
-
-    .bottom-particles .bubble:nth-child(6) {
-        left: 70%;
-        animation: blow 6638ms infinite;
-        animation-delay: 9476ms;
-    }
-
-    .bottom-particles .bubble:nth-child(7) {
-        left: 98%;
-        animation: blow 13404ms infinite;
-        animation-delay: 6142ms;
-    }
-
-    .bottom-particles .bubble:nth-child(8) {
-        left: 42%;
-        animation: blow 5000ms infinite;
-        animation-delay: 7975ms;
-    }
-
-    .bottom-particles .bubble:nth-child(9) {
-        left: 44%;
-        animation: blow 6019ms infinite;
-        animation-delay: 1147ms;
-    }
-
-    .bottom-particles .bubble:nth-child(10) {
-        left: 88%;
-        animation: blow 5000ms infinite;
-        animation-delay: 6057ms;
-    }
-
-    .bottom-particles .bubble:nth-child(11) {
-        left: 82%;
-        animation: blow 5000ms infinite;
-        animation-delay: 10518ms;
-    }
-
-    .bottom-particles .bubble:nth-child(12) {
-        left: 99%;
-        animation: blow 6048ms infinite;
-        animation-delay: 539ms;
-    }
-
-    .bottom-particles .bubble:nth-child(13) {
-        left: 76%;
-        animation: blow 5000ms infinite;
-        animation-delay: 7820ms;
-    }
-
-    .bottom-particles .bubble:nth-child(14) {
-        left: 23%;
-        animation: blow 12508ms infinite;
-        animation-delay: 10340ms;
-    }
-
-    .bottom-particles .bubble:nth-child(15) {
-        left: 82%;
-        animation: blow 5000ms infinite;
-        animation-delay: 3433ms;
-    }
-
-    .bottom-particles .bubble:nth-child(16) {
-        left: 96%;
-        animation: blow 5000ms infinite;
-        animation-delay: 11783ms;
-    }
-
-    .bottom-particles .bubble:nth-child(17) {
-        left: 74%;
-        animation: blow 5000ms infinite;
-        animation-delay: 3580ms;
-    }
-
-    .bottom-particles .bubble:nth-child(18) {
-        left: 18%;
-        animation: blow 13350ms infinite;
-        animation-delay: 8296ms;
-    }
-
-    .bottom-particles .bubble:nth-child(19) {
-        left: 95%;
-        animation: blow 5205ms infinite;
-        animation-delay: 6247ms;
-    }
-
-    .bottom-particles .bubble:nth-child(20) {
-        left: 51%;
-        animation: blow 14031ms infinite;
-        animation-delay: 10222ms;
-    }
-
-    .bottom-particles .bubble:nth-child(21) {
-        left: 97%;
-        animation: blow 5000ms infinite;
-        animation-delay: 7363ms;
-    }
-
-    .bottom-particles .bubble:nth-child(22) {
-        left: 21%;
-        animation: blow 10737ms infinite;
-        animation-delay: 1134ms;
-    }
-
-    .bottom-particles .bubble:nth-child(23) {
-        left: 72%;
-        animation: blow 14887ms infinite;
-        animation-delay: 4342ms;
-    }
-
-    .bottom-particles .bubble:nth-child(24) {
-        left: 86%;
-        animation: blow 5689ms infinite;
-        animation-delay: 8598ms;
-    }
-
-    .bottom-particles .bubble:nth-child(25) {
-        left: 39%;
-        animation: blow 5918ms infinite;
-        animation-delay: 8316ms;
-    }
-
-    .bottom-particles .bubble:nth-child(26) {
-        left: 34%;
-        animation: blow 9508ms infinite;
-        animation-delay: 9354ms;
-    }
-
-    .bottom-particles .bubble:nth-child(27) {
-        left: 42%;
-        animation: blow 5000ms infinite;
-        animation-delay: 5557ms;
-    }
-
-    .bottom-particles .bubble:nth-child(28) {
-        left: 7%;
-        animation: blow 9136ms infinite;
-        animation-delay: 2907ms;
-    }
-
-    .bottom-particles .bubble:nth-child(29) {
-        left: 53%;
-        animation: blow 5000ms infinite;
-        animation-delay: 1023ms;
-    }
-
-    .bottom-particles .bubble:nth-child(30) {
-        left: 96%;
-        animation: blow 8009ms infinite;
-        animation-delay: 9892ms;
-    }
-
-    .bottom-particles .bubble:nth-child(31) {
-        left: 75%;
-        animation: blow 5000ms infinite;
-        animation-delay: 9013ms;
-    }
-
-    .bottom-particles .bubble:nth-child(32) {
-        left: 40%;
-        animation: blow 5000ms infinite;
-        animation-delay: 3531ms;
-    }
-
-    .bottom-particles .bubble:nth-child(33) {
-        left: 58%;
-        animation: blow 5000ms infinite;
-        animation-delay: 6707ms;
-    }
-
-    .bottom-particles .bubble:nth-child(34) {
-        left: 4%;
-        animation: blow 5000ms infinite;
-        animation-delay: 3079ms;
-    }
-
-    .bottom-particles .bubble:nth-child(35) {
-        left: 26%;
-        animation: blow 14163ms infinite;
-        animation-delay: 4346ms;
-    }
-
-    .bottom-particles .bubble:nth-child(36) {
-        left: 93%;
-        animation: blow 6608ms infinite;
-        animation-delay: 3482ms;
-    }
-
-    .bottom-particles .bubble:nth-child(37) {
-        left: 50%;
-        animation: blow 9647ms infinite;
-        animation-delay: 10132ms;
-    }
-
-    .bottom-particles .bubble:nth-child(38) {
-        left: 42%;
-        animation: blow 8045ms infinite;
-        animation-delay: 93ms;
-    }
-
-    .bottom-particles .bubble:nth-child(39) {
-        left: 29%;
-        animation: blow 6505ms infinite;
-        animation-delay: 6037ms;
-    }
-
-    .bottom-particles .bubble:nth-child(40) {
-        left: 23%;
-        animation: blow 5689ms infinite;
-        animation-delay: 1642ms;
-    }
-
-    @keyframes blow {
-        0% {
-            opacity: 0;
-            transform: translate(0, 0);
-        }
-
-        20% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0;
-            transform: translate(0, -100vh) scale(0.2);
-        }
-    }
-</style>
 
 </html>
